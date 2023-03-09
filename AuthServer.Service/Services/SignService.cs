@@ -10,7 +10,7 @@ namespace AuthServer.Service.Services
     // A  - - - - - -  B
     // Public Key and Private Key  --> Asenkron Şifreleme
 
-    internal static class SignService
+    public static class SignService
     {
         public static SecurityKey GetSymmetricSecurityKey(string securityKey) 
         {
