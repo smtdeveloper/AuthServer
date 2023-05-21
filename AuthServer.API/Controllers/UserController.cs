@@ -17,14 +17,14 @@ namespace AuthServer.API.Controllers
             _userService = userService;
         }
 
-        [HttpPost]
+        [HttpPost("CreateUser")]
         public async Task<IActionResult> CreateUser(CreateUserDto createUserDto)
         {
             return ActionResultInstance(await _userService.CreateUserAsync(createUserDto));
         }
 
         [Authorize]
-        [HttpGet]
+        [HttpGet("GetUser")]
         public async Task<IActionResult> GetUser()
         {
             return ActionResultInstance(await _userService.GetUserByNameAsync(HttpContext.User.Identity.Name));

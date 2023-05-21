@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace AuthServer.Data
 {
@@ -18,7 +19,7 @@ namespace AuthServer.Data
 
         }
 
-        public DbSet<Product> Produts { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
 
@@ -27,6 +28,7 @@ namespace AuthServer.Data
             // tüm Configurationsları buluyor ve ekliyor
             builder.ApplyConfigurationsFromAssembly(GetType().Assembly);
             base.OnModelCreating(builder);
+            builder.Entity<UserRefreshToken>().HasNoKey();
 
         }
 

@@ -5,9 +5,9 @@ namespace AuthServer.Data
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly DbContext _context;
+        private readonly AppDbContext _context;
 
-        public UnitOfWork(DbContext context)
+        public UnitOfWork(AppDbContext context)
         {
             _context = context;
         }
